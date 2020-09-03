@@ -42,6 +42,9 @@ def find_boost_library(_id):
                                         sys.version_info.minor))
         # standard suffix for Python3
         suffixes.insert(1, sys.version_info.major)
+        # Ubuntu & Homebrew naming convention
+        suffixes.insert(2, "%d%d" % (sys.version_info.major,
+                                     sys.version_info.minor))
     for suf in suffixes:
         name = "%s%s" % (_id, suf)
         lib = find_library(name)
